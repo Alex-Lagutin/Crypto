@@ -16,12 +16,14 @@ overlay.addEventListener('click', (event) => {
 }
   });
   const form = document.querySelector('form');
+  const modalTitile = document.querySelector('.modal__title');
 
   form. addEventListener('submit', (event) => {
+    event.preventDefault();
 
     const data = {
-      name: form.name. value,
-      surmane: form.surname.value,
+      name: form.name.value,
+      surname: form.surname.value,
       tel: form.tel.value,
     };
 
@@ -29,4 +31,15 @@ overlay.addEventListener('click', (event) => {
       method: 'post',
       body: JSON.stringify(data)
     })
+    .then((response) => response.json())
+    .then((person) =>{
+      modalTitile.textContent = 
+      `${person.name}, Ваша заявка успешно отправлена, номер: ${person.id}`;
+      form.remove();
+
+      setTimeout(()=> {
+        overlay.classList.remove('overlay_open');
+        modal.classList.remove('modal_open');
+      }, 3000)
+    });
   })
