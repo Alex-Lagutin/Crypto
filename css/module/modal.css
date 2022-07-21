@@ -72,7 +72,13 @@
   background-color: transparent;
   line-height: 0;
   color: #55c2ff;
+transition: color 0.36s ease-in-out;
 }
+.modal__close:focus,
+.modal__close:hover {
+  color: #1c88eb;
+}
+
 @media (max-width: 480px) {
   .modal__container {
     padding: 20px 12px 36px;

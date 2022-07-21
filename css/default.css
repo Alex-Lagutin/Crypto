@@ -53,7 +53,17 @@ p {
   padding: 11px 41px;
   background-color: #55c2ff;
   border-radius: 8px;
-  border: none;
+  border: 1px solid transparent;
+  transition-property: background-color, border-color;
+  transition-duration: 0.36s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.btn:focus,
+.btn:hover {
+  border-color: #1c88eb;
+}
+.btn:active {
+  background-color: #1c88eb;
 }
 .overlay {
   position: fixed;
